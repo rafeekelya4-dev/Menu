@@ -1,0 +1,6 @@
+{
+  "name": "Premium Restaurant App",
+  "description": "A premium customer-facing restaurant portal featuring favorites, live status, seasonal offers, verified customer reviews, smart meal recommendations, and native mobile-polished ordering.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

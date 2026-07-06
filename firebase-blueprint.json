@@ -1,0 +1,174 @@
+{
+  "entities": {
+    "Product": {
+      "title": "Product",
+      "description": "A food or drink menu item",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "price": { "type": "number" },
+        "desc": { "type": "string" },
+        "category": { "type": "string" },
+        "image": { "type": "string" },
+        "isFeatured": { "type": "boolean" },
+        "isBestseller": { "type": "boolean" },
+        "isNew": { "type": "boolean" },
+        "rating": { "type": "number" },
+        "reviewsCount": { "type": "integer" },
+        "prepTime": { "type": "integer" },
+        "calories": { "type": "integer" }
+      },
+      "required": ["id", "name", "price"]
+    },
+    "Category": {
+      "title": "Category",
+      "description": "Menu categories",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" }
+      },
+      "required": ["name"]
+    },
+    "Addon": {
+      "title": "Addon",
+      "description": "Premium optional additions to dishes",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "price": { "type": "number" },
+        "desc": { "type": "string" }
+      },
+      "required": ["id", "name", "price"]
+    },
+    "Order": {
+      "title": "Order",
+      "description": "Customer order details",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "customerName": { "type": "string" },
+        "customerEmail": { "type": "string" },
+        "customerPhone": { "type": "string" },
+        "items": { "type": "array" },
+        "total": { "type": "number" },
+        "status": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "total", "status"]
+    },
+    "Customer": {
+      "title": "Customer",
+      "description": "CRM Customer profile",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "phone": { "type": "string" },
+        "orderCount": { "type": "integer" },
+        "totalSpent": { "type": "number" },
+        "lastOrder": { "type": "string" },
+        "status": { "type": "string" }
+      },
+      "required": ["id", "name", "email"]
+    },
+    "Review": {
+      "title": "Review",
+      "description": "Verified guest reviews",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "author": { "type": "string" },
+        "rating": { "type": "integer" },
+        "comment": { "type": "string" },
+        "date": { "type": "string" },
+        "isVerified": { "type": "boolean" },
+        "avatar": { "type": "string" }
+      },
+      "required": ["id", "author", "rating"]
+    },
+    "Offer": {
+      "title": "Offer",
+      "description": "Promo banners and offers",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "code": { "type": "string" },
+        "discount": { "type": "string" },
+        "badge": { "type": "string" },
+        "bgImage": { "type": "string" }
+      },
+      "required": ["id", "title"]
+    },
+    "Coupon": {
+      "title": "Coupon",
+      "description": "Discount codes",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "code": { "type": "string" },
+        "discount": { "type": "integer" },
+        "type": { "type": "string" },
+        "minSpend": { "type": "number" },
+        "active": { "type": "boolean" }
+      },
+      "required": ["id", "code", "discount"]
+    },
+    "Employee": {
+      "title": "Employee",
+      "description": "Restaurant staff",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "role": { "type": "string" },
+        "email": { "type": "string" },
+        "phone": { "type": "string" },
+        "status": { "type": "string" }
+      },
+      "required": ["id", "name", "role"]
+    }
+  },
+  "firestore": {
+    "products/{productId}": {
+      "schema": "Product",
+      "description": "Food menu items"
+    },
+    "categories/{categoryId}": {
+      "schema": "Category",
+      "description": "Menu categories"
+    },
+    "addons/{addonId}": {
+      "schema": "Addon",
+      "description": "Available additions"
+    },
+    "orders/{orderId}": {
+      "schema": "Order",
+      "description": "Customer orders"
+    },
+    "customers/{customerId}": {
+      "schema": "Customer",
+      "description": "Customer profiles"
+    },
+    "reviews/{reviewId}": {
+      "schema": "Review",
+      "description": "Restaurant guest reviews"
+    },
+    "offers/{offerId}": {
+      "schema": "Offer",
+      "description": "Active promotional offers"
+    },
+    "coupons/{couponId}": {
+      "schema": "Coupon",
+      "description": "Promotional discount codes"
+    },
+    "employees/{employeeId}": {
+      "schema": "Employee",
+      "description": "Staff roster list"
+    }
+  }
+}
